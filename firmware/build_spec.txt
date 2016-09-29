@@ -1,0 +1,2 @@
+12 modules: cjson dht file gpio mqtt net node rtctime sntp tmr uart wifi
+FLOAT
