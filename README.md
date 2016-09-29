@@ -7,8 +7,9 @@ A NodeMCU application that publishes a timestamped JSON temperature/humidity eve
 
 These instructions assume you have a new NodeMCU that also requires firmware to be installed and you already have an MQTT up and running.  If you need help installing MQTT there are many tutorials on the internet to help.  For my project I used the free MQTT server Mosquitto on an old laptop running Lubuntu.  When I get a chance I will do a tutorial of that if people are interested.
 
-Event Message:
+##Event Message:
 
+```
 {
   "temperature": 24.6,
   "eventLocation": "domain/location",
@@ -17,6 +18,7 @@ Event Message:
   "eventType": "temphumi",
   "sensorID": 1547899
 }
+```
 
 ###Step 1 - Install the Firmware
 
