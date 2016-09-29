@@ -8,7 +8,14 @@ A NodeMCU application that publishes a timestamped JSON temperature/humidity eve
 
 These instructions assume you have a new NodeMCU that also requires firmware to be installed and you already have an MQTT up and running.  If you need help installing MQTT there are many tutorials on the internet to help.  For my project I used the free MQTT server Mosquitto on an old laptop running Lubuntu.  When I get a chance I will do a tutorial of that if people are interested.
 
-##Event Message:
+###Step 1 - Install the Firmware
+
+###Step 2 - Load the application to NodeMCU 
+Update config.lua with your own configuration for Wifi, MQTT Server settings etc.  Write the files to a blank NodeMCU.
+
+###Step 3 - Test it out
+
+IF you subscribe to the topic on your MQTT server you should see the following event published (when the interval is up, be patient!):
 
 ```
 {
@@ -21,15 +28,9 @@ These instructions assume you have a new NodeMCU that also requires firmware to 
 }
 ```
 
-###Step 1 - Install the Firmware
-
-###Step 2 - Load the application to NodeMCU 
-Update config.lua with your own configuration for Wifi, MQTT Server settings etc.  Write the files to a blank NodeMCU
-
-
 ##Hardware
 
-It's a pretty simple first project, I used it to learn my way around Lua.
+It's a pretty simple first project, I used it to learn my way around Lua.  Hardware wiring photos soon.
 
 
 ##Firmware build
