@@ -2,8 +2,8 @@
 -- Author       : peppercopia@gmail.com
 -- Description  : Reads telemetry from an AM2302 (DHT22) sensor and returns a JSON
 --                event message.
--- Version      : 1.0
--- Last Updated : 2016-09-24
+-- Version      : 1.1
+-- Last Updated : 2016-09-30
 
 local am2302 = {}
 
@@ -31,10 +31,15 @@ function am2302.getValues()
 
         --Print the readings to the console
 		--Uncomment for local development/testing
-		
-        print("")
-        print("================================================")
-        for k,v in pairs(sensorEvent) do print(k..":\t\t",v) end
+        print("")   
+        print("========= Temperature / Humidity Event =========")
+        for k,v in pairs(sensorEvent) do 
+            if k == "eventLocation" then
+                print(k..":\t",v)
+            else
+                print(k..":\t\t",v)
+            end
+        end
         print("================================================")
         
 	elseif status == dht.ERROR_CHECKSUM then

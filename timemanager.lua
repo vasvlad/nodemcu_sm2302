@@ -1,8 +1,8 @@
 -- file         : timemanager.lua
 -- Author       : peppercopia@gmail.com
 -- Description  : Manages setting and retrieving the device internal time.
--- Version      : 1.0
--- Last Updated : 2016-09-25
+-- Version      : 1.0.1
+-- Last Updated : 2016-09-30
 
 local timemanager = {}
 
@@ -10,7 +10,7 @@ local timemanager = {}
     -- NTP (time) server.
 	function timemanager.setDeviceTime()
 
-		--Call the NTP server and deal with the result
+		--Call the NTP server and set the device time
 		sntp.sync(config.NTPSERVER,
 		
 		function(sec,usec,server)
@@ -21,6 +21,7 @@ local timemanager = {}
 		function(errcode)
        
 			--Time sync failed, print the reason to the logging queue
+            led.blink()
             local errorMessage = {}
             errorMessage[1] = "\"DNS lookup failed\""
             errorMessage[2] = "\"Memory allocation failure\""
@@ -37,7 +38,7 @@ local timemanager = {}
     -- Function provides the device time in a formatted string.
 	function timemanager.getDeviceTime()
 	
-		--Returns a formatted date/time string
+		--Returns a formatted Java date/time string
 		tm = rtctime.epoch2cal(rtctime.get())
 		return (string.format("%04d-%02d-%02dT%02d:%02d:%02d", tm["year"], tm["mon"], tm["day"], tm["hour"], tm["min"], tm["sec"]).."+00:00")
 

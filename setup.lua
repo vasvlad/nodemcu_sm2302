@@ -3,8 +3,8 @@
 -- Description  : Connects the NodeMCU Temphumi Sensor to the network, sets the
 --                system time, summarizes the runtime configuration and then
 --                starts the sensor app.
--- Version      : 1.0
--- Last Updated : 2016-09-24
+-- Version      : 1.1
+-- Last Updated : 2016-09-30
 
 local setup = {}
 
@@ -12,8 +12,9 @@ local function wifi_wait_ip()
   if wifi.sta.getip()== nil then
     print("Still connecting to Network ...")
   else
+    --Stop the wifi timer and turn off the LED.
     tmr.stop(1)
-    
+    led.stopBlink()
     -- We are connected!  Call the NTP server and set the devices time.
     timemanager.setDeviceTime()
 
@@ -39,7 +40,10 @@ function setup.start()
 	--to wait for the connection to be established.
     wifi.setmode(wifi.STATION);
     wifi.sta.config(config.targetSSID, config.targetSSIDPassword)
-    print("Sensor connecting to the network ...")
+    print("=========== NodeMCU Temp/Humi Sensor ============")
+    print("Build v0.2")
+    print("Connecting to the network...")
+    led.lazyBlink()
     wifi.sta.connect()
     tmr.alarm(1, config.connectWait, 1, wifi_wait_ip)
 end

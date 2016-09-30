@@ -1,8 +1,13 @@
 -- file         : init.lua
 -- Author       : peppercopia@gmail.com
 -- Description  : The starting module for the NodeMCU TempHumi Sensor.
--- Version      : 1.0
--- Last Updated : 2016-09-25
+-- Version      : 1.0.1
+-- Last Updated : 2016-09-30
+
+--timers used in application
+--tmr(1) - Blink LED
+--tmr(2) - Slow blink LED
+--tmr(6) - MQTT Poll Interval Publishing
 
 -- Load configuration and setup modules
 config = require("config")
