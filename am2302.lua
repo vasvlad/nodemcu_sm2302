@@ -12,6 +12,7 @@ function am2302.getValues()
     --Define the sensorEvent Lua table.
     local sensorEvent = {
         sensorID = config.ID,
+        sensorIP = wifi.sta.getip(),
         eventTime = "NOT SET",
         eventType = config.EVENTTYPE,
         eventLocation = config.DOMAIN .. "/" .. config.LOCATION,
