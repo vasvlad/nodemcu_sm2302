@@ -10,8 +10,9 @@ m = nil
 
 -- Function to emit the sensors readings
 local function emit_event()
-	
-    m:publish(config.SENDTOPIC,sensor.getValues(),0,0)
+    temp, humi = sensor.getValues()	
+    m:publish(config.SENDTOPIC.."temperature", temp, 0, 0)
+    m:publish(config.SENDTOPIC.."humidity", humi,0,0)
 end
 
 --Listener for subscribed messages.  Not implemented, this is where
