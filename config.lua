@@ -36,5 +36,8 @@ config.NTPSERVER = "time.windows.com"           -- NTP server to connect to.  De
 
 -- am2302.lua Configuration
 config.AM2302_PIN = 4							-- datapin of the connected AM2302
+-- ds18s20.lua Configuration
+config.DS18S20_PIN = 3							-- datapin of the connected AM2302
+
 
 return config  

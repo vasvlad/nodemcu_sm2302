@@ -13,6 +13,8 @@ local function emit_event()
     temp, humi = sensor.getValues()	
     m:publish(config.SENDTOPIC.."temperature", temp, 0, 0)
     m:publish(config.SENDTOPIC.."humidity", humi,0,0)
+    temp2 = sensor2.getValue()
+    m:publish(config.SENDTOPIC.."temperature2", temp2, 0, 0)
 end
 
 --Listener for subscribed messages.  Not implemented, this is where
