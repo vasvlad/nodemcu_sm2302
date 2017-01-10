@@ -10,6 +10,7 @@ setup = require("setup")
 
 -- Include the components used
 sensor = require("am2302")
+sensor2 = require("ds18s20")
 led = require("led")
 timemanager = require("timemanager")
 
